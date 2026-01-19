@@ -1,0 +1,355 @@
+@import "tailwindcss";
+
+@theme {
+  /* Primary - Soft Ivory White */
+  --color-ivory-50: #fefefe;
+  --color-ivory-100: #fcfcfb;
+  --color-ivory-200: #f9f9f7;
+  --color-ivory-300: #f5f5f2;
+  --color-ivory-400: #efefe9;
+  --color-ivory-500: #e8e8e0;
+
+  /* Secondary - Warm Linen Beige */
+  --color-linen-50: #faf8f5;
+  --color-linen-100: #f5f1eb;
+  --color-linen-200: #ede6dc;
+  --color-linen-300: #e2d7c9;
+  --color-linen-400: #d4c5b2;
+  --color-linen-500: #c4b19a;
+
+  /* Accent - Soft Sage Green */
+  --color-sage-50: #f4f6f3;
+  --color-sage-100: #e8ede6;
+  --color-sage-200: #d4ddd0;
+  --color-sage-300: #bccab5;
+  --color-sage-400: #a9b8a1;
+  --color-sage-500: #8fa386;
+  --color-sage-600: #728b68;
+  --color-sage-700: #5a6e52;
+  --color-sage-800: #485843;
+  --color-sage-900: #3c4938;
+
+  /* Legacy Cream (mapped to new palette) */
+  --color-cream-50: #fefefe;
+  --color-cream-100: #f9f9f7;
+  --color-cream-200: #ede6dc;
+  --color-cream-300: #e2d7c9;
+  --color-cream-400: #d4c5b2;
+  --color-cream-500: #c4b19a;
+
+  /* Custom Color Palette - Charcoal */
+  --color-charcoal-50: #f7f7f6;
+  --color-charcoal-100: #e8e8e6;
+  --color-charcoal-200: #d1d1ce;
+  --color-charcoal-300: #b0b0ab;
+  --color-charcoal-400: #8a8a84;
+  --color-charcoal-500: #6b6b65;
+  --color-charcoal-600: #52524d;
+  --color-charcoal-700: #3d3d3a;
+  --color-charcoal-800: #2d2d2b;
+  --color-charcoal-900: #1a1a19;
+
+  /* Accent - Soft Blush (complementary) */
+  --color-blush-50: #fdf8f7;
+  --color-blush-100: #faf1ef;
+  --color-blush-200: #f5e3df;
+  --color-blush-300: #edd0c9;
+
+  /* Accent - Terracotta (warm accent) */
+  --color-terracotta-50: #fdf6f3;
+  --color-terracotta-100: #fae8e0;
+  --color-terracotta-200: #f5d0c1;
+  --color-terracotta-300: #edae96;
+  --color-terracotta-400: #e28a6a;
+  --color-terracotta-500: #d4684a;
+  --color-terracotta-600: #c15339;
+  --color-terracotta-700: #a1432f;
+  --color-terracotta-800: #853a2c;
+  --color-terracotta-900: #6e3328;
+
+  /* Typography - Font Families */
+  --font-display: 'Cormorant Garamond', Georgia, serif;
+  --font-body: 'Nunito Sans', system-ui, sans-serif;
+}
+
+@layer base {
+  * {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+  
+  html {
+    scroll-behavior: smooth;
+  }
+  
+  body {
+    font-family: var(--font-body);
+    color: var(--color-charcoal-800);
+    background-color: var(--color-ivory-200);
+    line-height: 1.6;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+  
+  h1, h2, h3, h4, h5, h6 {
+    font-family: var(--font-display);
+    font-weight: 400;
+    line-height: 1.2;
+  }
+  
+  img {
+    max-width: 100%;
+    height: auto;
+    display: block;
+  }
+  
+  :focus-visible {
+    outline: 2px solid var(--color-sage-500);
+    outline-offset: 2px;
+  }
+}
+
+@layer components {
+  .container-custom {
+    width: 100%;
+    max-width: 1280px;
+    margin-left: auto;
+    margin-right: auto;
+    padding-left: 1rem;
+    padding-right: 1rem;
+  }
+  
+  @media (min-width: 640px) {
+    .container-custom {
+      padding-left: 1.5rem;
+      padding-right: 1.5rem;
+    }
+  }
+  
+  @media (min-width: 1024px) {
+    .container-custom {
+      padding-left: 2rem;
+      padding-right: 2rem;
+    }
+  }
+}
+
+@layer utilities {
+  /* Fade Up Animation */
+  .fade-up {
+    opacity: 0;
+    transform: translateY(30px);
+    transition: opacity 0.7s ease-out, transform 0.7s ease-out;
+  }
+
+  .fade-up.visible {
+    opacity: 1;
+    transform: translateY(0);
+  }
+
+  /* Fade In Animation */
+  .fade-in {
+    opacity: 0;
+    transition: opacity 0.7s ease-out;
+  }
+
+  .fade-in.visible {
+    opacity: 1;
+  }
+
+  /* Fade Left Animation */
+  .fade-left {
+    opacity: 0;
+    transform: translateX(-30px);
+    transition: opacity 0.7s ease-out, transform 0.7s ease-out;
+  }
+
+  .fade-left.visible {
+    opacity: 1;
+    transform: translateX(0);
+  }
+
+  /* Fade Right Animation */
+  .fade-right {
+    opacity: 0;
+    transform: translateX(30px);
+    transition: opacity 0.7s ease-out, transform 0.7s ease-out;
+  }
+
+  .fade-right.visible {
+    opacity: 1;
+    transform: translateX(0);
+  }
+
+  /* Scale Up Animation */
+  .scale-up {
+    opacity: 0;
+    transform: scale(0.95);
+    transition: opacity 0.7s ease-out, transform 0.7s ease-out;
+  }
+
+  .scale-up.visible {
+    opacity: 1;
+    transform: scale(1);
+  }
+
+  /* Legacy reveal class */
+  .reveal {
+    opacity: 0;
+    transform: translateY(20px);
+    transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+  }
+
+  .reveal.visible {
+    opacity: 1;
+    transform: translateY(0);
+  }
+
+  /* Animation Delays */
+  .delay-1 {
+    transition-delay: 0.1s;
+  }
+
+  .delay-2 {
+    transition-delay: 0.2s;
+  }
+
+  .delay-3 {
+    transition-delay: 0.3s;
+  }
+
+  .delay-4 {
+    transition-delay: 0.4s;
+  }
+
+  .delay-5 {
+    transition-delay: 0.5s;
+  }
+
+  .delay-6 {
+    transition-delay: 0.6s;
+  }
+
+  /* Legacy delay classes */
+  .reveal-delay-1 {
+    transition-delay: 0.1s;
+  }
+
+  .reveal-delay-2 {
+    transition-delay: 0.2s;
+  }
+
+  .reveal-delay-3 {
+    transition-delay: 0.3s;
+  }
+
+  /* Button Hover Effects */
+  .btn-hover-lift {
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+  }
+
+  .btn-hover-lift:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+  }
+
+  /* Card Hover Effects */
+  .card-hover {
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+  }
+
+  .card-hover:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 12px 24px rgba(0, 0, 0, 0.12);
+  }
+
+  /* Image Zoom on Hover */
+  .image-zoom-container {
+    overflow: hidden;
+  }
+
+  .image-zoom {
+    transition: transform 0.5s ease;
+  }
+
+  .image-zoom-container:hover .image-zoom {
+    transform: scale(1.05);
+  }
+
+  /* Stagger Animation for Grid Items */
+  .stagger-item {
+    opacity: 0;
+    transform: translateY(20px);
+    transition: opacity 0.5s ease-out, transform 0.5s ease-out;
+  }
+
+  .stagger-item.visible {
+    opacity: 1;
+    transform: translateY(0);
+  }
+
+  /* Float Animation */
+  @keyframes float {
+    0%, 100% {
+      transform: translateY(0);
+    }
+    50% {
+      transform: translateY(-10px);
+    }
+  }
+
+  .animate-float {
+    animation: float 3s ease-in-out infinite;
+  }
+
+  /* Pulse Animation */
+  @keyframes pulse-soft {
+    0%, 100% {
+      opacity: 1;
+    }
+    50% {
+      opacity: 0.7;
+    }
+  }
+
+  .animate-pulse-soft {
+    animation: pulse-soft 2s ease-in-out infinite;
+  }
+
+  /* Ken Burns Effect */
+  @keyframes kenburns {
+    0% {
+      transform: scale(1);
+    }
+    100% {
+      transform: scale(1.1);
+    }
+  }
+
+  .animate-kenburns {
+    animation: kenburns 20s ease-in-out infinite alternate;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+
+  .reveal,
+  .fade-up,
+  .fade-in,
+  .fade-left,
+  .fade-right,
+  .scale-up,
+  .stagger-item {
+    opacity: 1;
+    transform: none;
+  }
+}
