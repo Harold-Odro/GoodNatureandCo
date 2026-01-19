@@ -24,7 +24,7 @@ function IntroductionSection() {
               <p>
                 At Good Nature Floral Artistry, we believe flowers tell stories. Each arrangement
                 is thoughtfully designed to capture the essence of your moment — whether it's a
-                joyful celebration, a heartfelt sympathy, or a simple gesture of love.
+                joyful celebration or a simple gesture of love.
               </p>
               <p>
                 Based in Reston, Virginia, we bring an artisan's touch to every bloom.
@@ -116,7 +116,7 @@ export default function FloralHome() {
     <FloralLayout showCart={true}>
       <SEO
         title="Floral Artistry | Good Nature"
-        description="Thoughtfully crafted floral arrangements for weddings, events, sympathy, and everyday moments. Serving Reston, Virginia."
+        description="Thoughtfully crafted floral arrangements for weddings, events, and everyday moments. Serving Reston, Virginia."
         canonical="/floral-artistry"
         schema={localBusinessSchema}
       />

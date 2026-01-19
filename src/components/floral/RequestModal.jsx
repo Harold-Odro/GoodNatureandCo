@@ -30,7 +30,6 @@ export function RequestModal({ item, onClose }) {
   const categoryLabels = {
     weddings: 'Weddings',
     events: 'Events & Corporate',
-    sympathy: 'Sympathy',
     everyday: 'Everyday'
   };
 

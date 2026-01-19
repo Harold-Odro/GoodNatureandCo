@@ -20,7 +20,6 @@ export function Lightbox({ item, onClose, onNext, onPrev, onRequest }) {
   const categoryLabels = {
     weddings: 'Weddings',
     events: 'Events & Corporate',
-    sympathy: 'Sympathy',
     everyday: 'Everyday'
   };
 

@@ -17,7 +17,7 @@ export const CONTACT_INFO = {
 export const FLORAL_INFO = {
   name: 'Good Nature Floral Artistry',
   tagline: "Blooms for Life's Meaningful Moments",
-  description: 'Thoughtfully crafted floral arrangements for weddings, events, sympathy, and everyday moments.',
+  description: 'Thoughtfully crafted floral arrangements for weddings, events, and everyday moments.',
 };
 
 export const BODYCARE_INFO = {

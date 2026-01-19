@@ -25,8 +25,10 @@ export function Footer({ variant = 'floral' }) {
         <div className="grid grid-cols-1 md:grid-cols-3 gap-8 md:gap-12 mb-8">
           {/* Brand Column */}
           <div>
-            <Logo linkTo={ROUTES.home} size="md" color="dark" variant="full" />
-            <p className="mt-4 text-charcoal-700 text-sm leading-relaxed">
+            <div className="opacity-80 grayscale-[20%] hover:opacity-100 hover:grayscale-0 transition-all duration-300">
+              <Logo linkTo={ROUTES.home} size="md" color="dark" variant="full" className="mix-blend-multiply" />
+            </div>
+            <p className="mt-4 text-charcoal-600 text-sm leading-relaxed">
               {SITE_INFO.tagline}
             </p>
           </div>

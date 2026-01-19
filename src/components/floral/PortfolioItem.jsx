@@ -6,7 +6,6 @@ export function PortfolioItem({ item, onClick, onRequest, delay = '' }) {
   const categoryLabels = {
     weddings: 'Weddings',
     events: 'Events',
-    sympathy: 'Sympathy',
     everyday: 'Everyday'
   };
 

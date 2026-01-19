@@ -57,16 +57,16 @@ export const portfolioItems = [
   },
   {
     id: '9',
-    title: 'Graceful Sympathy Arrangement',
-    category: 'sympathy',
-    description: 'Peaceful white and cream blooms offering comfort during difficult times.',
+    title: 'Peaceful White Arrangement',
+    category: 'everyday',
+    description: 'Serene white and cream blooms creating a calming atmosphere.',
     image: 'https://images.unsplash.com/photo-1490750967868-88aa4486c946?w=800&auto=format&fit=crop'
   },
   {
     id: '10',
-    title: 'Memorial Service Tribute',
-    category: 'sympathy',
-    description: 'Thoughtfully designed standing spray honoring a life well-lived.',
+    title: 'Classic Garden Collection',
+    category: 'everyday',
+    description: 'Timeless arrangement featuring soft blooms and natural greenery.',
     image: 'https://images.unsplash.com/photo-1487530811176-3780de880c2d?w=800&auto=format&fit=crop'
   },
   {

@@ -16,11 +16,11 @@ export const services = [
     filterParam: 'events'
   },
   {
-    id: 'sympathy',
-    title: 'Sympathy & Everyday',
-    shortDescription: 'Thoughtful blooms for life\'s quieter moments — comfort, gratitude, and simple joys.',
-    fullDescription: 'Sometimes flowers speak when words cannot. Our sympathy arrangements honor those we\'ve lost with grace and dignity, offering comfort during difficult times. For everyday moments, we create arrangements that brighten a room, express gratitude, or simply celebrate the beauty of now. Each stem is selected with care and arranged with intention.',
+    id: 'everyday',
+    title: 'Everyday Arrangements',
+    shortDescription: 'Thoughtful blooms for life\'s everyday moments — gratitude, celebration, and simple joys.',
+    fullDescription: 'Sometimes the best moments are the everyday ones. We create arrangements that brighten a room, express gratitude, or simply celebrate the beauty of now. From thank you bouquets to seasonal centerpieces, each stem is selected with care and arranged with intention to bring joy to any space.',
     image: 'https://images.unsplash.com/photo-1490750967868-88aa4486c946?w=800&auto=format&fit=crop',
-    filterParam: 'sympathy'
+    filterParam: 'everyday'
   }
 ];

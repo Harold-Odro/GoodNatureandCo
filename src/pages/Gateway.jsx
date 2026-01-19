@@ -22,7 +22,7 @@ export default function Gateway() {
               title="Floral Artistry"
               tagline={FLORAL_INFO.tagline}
               description={FLORAL_INFO.description}
-              services="Weddings • Events • Sympathy • Everyday"
+              services="Weddings • Events • Everyday"
               image="https://images.unsplash.com/photo-1490750967868-88aa4486c946?w=800&auto=format&fit=crop"
               linkTo={ROUTES.floralHome}
               buttonText="Explore →"

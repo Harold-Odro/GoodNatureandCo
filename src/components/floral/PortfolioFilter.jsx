@@ -7,7 +7,6 @@ export function PortfolioFilter({ activeFilter, onFilterChange }) {
     { id: 'all', label: 'All' },
     { id: 'weddings', label: 'Weddings' },
     { id: 'events', label: 'Events & Corporate' },
-    { id: 'sympathy', label: 'Sympathy' },
     { id: 'everyday', label: 'Everyday' }
   ];
 

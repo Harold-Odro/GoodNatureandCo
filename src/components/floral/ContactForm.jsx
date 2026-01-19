@@ -143,7 +143,6 @@ export function ContactForm() {
           <option value="">Select an event type</option>
           <option value="Wedding">Wedding</option>
           <option value="Corporate/Event">Corporate/Event</option>
-          <option value="Sympathy">Sympathy</option>
           <option value="Everyday/Gift">Everyday/Gift</option>
           <option value="Other">Other</option>
         </select>

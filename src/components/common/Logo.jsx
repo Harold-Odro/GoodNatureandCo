@@ -13,11 +13,11 @@ export function Logo({ variant = 'full', size = 'md', linkTo = null, className =
   const logoSrc = variant === 'full' ? '/images/logo-main.jpg' : '/images/logo-alt.jpg';
 
   const content = (
-    <div className={`${sizeClasses[size]} ${className}`}>
+    <div className={`${sizeClasses[size]}`}>
       <img
         src={logoSrc}
         alt="Good Nature"
-        className="h-full w-auto object-contain"
+        className={`h-full w-auto object-contain ${className}`}
       />
     </div>
   );

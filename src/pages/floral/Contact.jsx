@@ -58,7 +58,7 @@ function FAQ() {
     },
     {
       question: 'How far in advance should I book?',
-      answer: 'For weddings and large events, we recommend booking 3-6 months in advance. For smaller arrangements and sympathy florals, we can often accommodate shorter timelines.'
+      answer: 'For weddings and large events, we recommend booking 3-6 months in advance. For smaller arrangements, we can often accommodate shorter timelines.'
     },
     {
       question: 'Do you offer delivery?',

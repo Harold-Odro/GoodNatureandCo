@@ -74,7 +74,7 @@ export default function Portfolio() {
 
   useEffect(() => {
     const filterParam = searchParams.get('filter');
-    if (filterParam && ['weddings', 'events', 'sympathy', 'everyday'].includes(filterParam)) {
+    if (filterParam && ['weddings', 'events', 'everyday'].includes(filterParam)) {
       setActiveFilter(filterParam);
     }
   }, [searchParams]);
@@ -128,7 +128,7 @@ export default function Portfolio() {
     <FloralLayout showCart={true}>
       <SEO
         title="Portfolio | Good Nature Floral Artistry"
-        description="Browse our collection of wedding flowers, event arrangements, sympathy florals, and everyday bouquets. Good Nature Floral Artistry, Reston, Virginia."
+        description="Browse our collection of wedding flowers, event arrangements, and everyday bouquets. Good Nature Floral Artistry, Reston, Virginia."
         canonical="/floral-artistry/portfolio"
       />
 
