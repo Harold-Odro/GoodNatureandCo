@@ -7,9 +7,9 @@ export const SITE_INFO = {
 
 export const CONTACT_INFO = {
   phone: '(555) 123-4567',
-  email: 'hello@goodnature.com',
+  email: 'goodnatureandco@gmail.com',
   instagram: '@goodnaturefloral',
-  instagramUrl: 'https://instagram.com/goodnaturefloral',
+  instagramUrl: 'https://www.instagram.com/goodnaturefloralartistry?igsh=dGZ0ZzFpMnFkczM2',
   pinterest: '@goodnature',
   pinterestUrl: 'https://pinterest.com/goodnature',
 };

@@ -139,6 +139,38 @@ export const products = [
   }
 ];
 
+// Inquiry-only services (Events & Experiences)
+export const services = [
+  {
+    id: 'micro-wedding',
+    name: 'Micro Wedding Floral Decor',
+    category: 'events',
+    type: 'inquiry-only',
+    description: 'Our micro wedding florals are thoughtfully designed to complement intimate celebrations. Each wedding is custom curated based on your vision, venue, and guest count.',
+    cta: 'Please submit an inquiry to begin your floral experience.',
+    image: 'https://images.unsplash.com/photo-1519225421980-715cb0215aed?w=800&auto=format&fit=crop',
+    includes: ['Bridal bouquets', 'Ceremony florals', 'Reception centerpieces', 'Personal flowers']
+  },
+  {
+    id: 'special-event',
+    name: 'Dinner / Proposal / Special Event Decor',
+    category: 'events',
+    type: 'inquiry-only',
+    description: 'These experiences are designed intentionally and priced based on scale, floral selection, and setup needs. Inquiries allow us to create something truly personal.',
+    image: 'https://images.unsplash.com/photo-1469371670807-013ccf25f16a?w=800&auto=format&fit=crop',
+    includes: ['Romantic dinners', 'Proposals', 'Birthdays', 'Private events']
+  },
+  {
+    id: 'fully-custom',
+    name: 'Fully Custom Arrangements',
+    category: 'events',
+    type: 'inquiry-only',
+    description: 'For clients seeking one-of-a-kind floral experiences that go beyond our standard offerings.',
+    image: 'https://images.unsplash.com/photo-1508610048659-a06b669e3321?w=800&auto=format&fit=crop',
+    includes: ['Unique installs', 'Statement florals', 'Non-standard designs', 'Bespoke creations']
+  }
+];
+
 export const getProductById = (id) => {
   return products.find(product => product.id === id);
 };

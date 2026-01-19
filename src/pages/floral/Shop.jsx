@@ -2,8 +2,9 @@ import { FloralLayout } from '../../layouts/FloralLayout';
 import { SEO } from '../../components/common/SEO';
 import { ProductCard } from '../../components/floral/ProductCard';
 import { CustomProductCard } from '../../components/floral/CustomProductCard';
+import { InquiryServiceCard } from '../../components/floral/InquiryServiceCard';
 import { Button } from '../../components/common/Button';
-import { products } from '../../data/products';
+import { products, services } from '../../data/products';
 import { ROUTES } from '../../utils/constants';
 import { useAnimation } from '../../hooks/useAnimation';
 
@@ -72,24 +73,57 @@ function ProductGrid() {
   );
 }
 
-function CustomOrderCTA() {
+function EventsSection() {
+  const [titleRef, , titleClass] = useAnimation('fade-up');
+  const [subtitleRef, , subtitleClass] = useAnimation('fade-up', 0.1, 'delay-1');
+  const delays = ['delay-2', 'delay-3', 'delay-4'];
+
+  return (
+    <section className="py-16 md:py-24 bg-linen-100">
+      <div className="container-custom">
+        {/* Section Header */}
+        <div className="text-center mb-12">
+          <h2 ref={titleRef} className={`text-3xl md:text-4xl font-display text-charcoal-800 mb-4 ${titleClass}`}>
+            Events & Experiences
+          </h2>
+          <p ref={subtitleRef} className={`text-lg text-charcoal-600 max-w-2xl mx-auto ${subtitleClass}`}>
+            Custom floral design for life's most meaningful moments
+          </p>
+        </div>
+
+        {/* Services Grid */}
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 max-w-6xl mx-auto">
+          {services.map((service, index) => (
+            <InquiryServiceCard
+              key={service.id}
+              service={service}
+              delay={delays[index % delays.length]}
+            />
+          ))}
+        </div>
+      </div>
+    </section>
+  );
+}
+
+function PortfolioCTA() {
   const [ref, , className] = useAnimation('fade-up');
 
   return (
     <section className="py-16 md:py-24 bg-linen-200">
       <div ref={ref} className={`container-custom text-center ${className}`}>
         <h2 className="text-3xl md:text-4xl font-display text-charcoal-800 mb-4">
-          Looking for Something Custom?
+          See Our Work
         </h2>
         <p className="text-lg text-charcoal-700 mb-8 max-w-2xl mx-auto">
-          Whether it's a wedding, special event, or a unique arrangement, we'd love to bring your vision to life.
+          Browse our portfolio for inspiration from weddings, events, and custom arrangements.
         </p>
         <div className="flex flex-col sm:flex-row gap-4 justify-center">
-          <Button href={ROUTES.floralContact} variant="primary" size="lg">
-            Request Custom Order
+          <Button href={ROUTES.floralPortfolio} variant="primary" size="lg">
+            View Portfolio
           </Button>
-          <Button href={ROUTES.floralPortfolio} variant="outline" size="lg">
-            View Our Portfolio
+          <Button href={ROUTES.floralContact} variant="outline" size="lg">
+            Get in Touch
           </Button>
         </div>
       </div>
@@ -166,7 +200,8 @@ export default function Shop() {
       <ShopHero />
       <DeliveryInfo />
       <ProductGrid />
-      <CustomOrderCTA />
+      <EventsSection />
+      <PortfolioCTA />
     </FloralLayout>
   );
 }
