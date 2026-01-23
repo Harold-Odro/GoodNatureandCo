@@ -147,7 +147,6 @@ export const services = [
     category: 'events',
     type: 'inquiry-only',
     description: 'Our micro wedding florals are thoughtfully designed to complement intimate celebrations. Each wedding is custom curated based on your vision, venue, and guest count.',
-    cta: 'Please submit an inquiry to begin your floral experience.',
     image: 'https://images.unsplash.com/photo-1519225421980-715cb0215aed?w=800&auto=format&fit=crop',
     includes: ['Bridal bouquets', 'Ceremony florals', 'Reception centerpieces', 'Personal flowers']
   },

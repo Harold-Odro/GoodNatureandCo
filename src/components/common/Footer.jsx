@@ -1,5 +1,4 @@
 import { Link } from 'react-router-dom';
-import { Logo } from './Logo';
 import { CONTACT_INFO, SITE_INFO, ROUTES } from '../../utils/constants';
 
 export function Footer({ variant = 'floral' }) {
@@ -20,15 +19,26 @@ export function Footer({ variant = 'floral' }) {
   }
 
   return (
-    <footer className="bg-linen-100 py-12 md:py-16">
-      <div className="container-custom">
+    <footer className="bg-linen-100 py-12 md:py-16 relative overflow-hidden">
+      {/* Subtle botanical watermark */}
+      <svg className="absolute -right-16 -bottom-16 w-64 h-64 text-linen-200/60 pointer-events-none" viewBox="0 0 200 200" fill="none">
+        <path d="M100 180 Q100 100, 100 50 Q85 80, 60 90 Q85 85, 100 50 Q115 80, 140 90 Q115 85, 100 50" stroke="currentColor" strokeWidth="1.5" fill="none"/>
+        <path d="M100 50 Q100 30, 100 10" stroke="currentColor" strokeWidth="1.5" fill="none"/>
+        <ellipse cx="60" cy="90" rx="15" ry="8" stroke="currentColor" strokeWidth="1" fill="none" opacity="0.6"/>
+        <ellipse cx="140" cy="90" rx="15" ry="8" stroke="currentColor" strokeWidth="1" fill="none" opacity="0.6"/>
+        <ellipse cx="75" cy="120" rx="12" ry="6" stroke="currentColor" strokeWidth="1" fill="none" opacity="0.5"/>
+        <ellipse cx="125" cy="120" rx="12" ry="6" stroke="currentColor" strokeWidth="1" fill="none" opacity="0.5"/>
+        <circle cx="100" cy="10" r="8" stroke="currentColor" strokeWidth="1" fill="none" opacity="0.7"/>
+      </svg>
+
+      <div className="container-custom relative z-10">
         <div className="grid grid-cols-1 md:grid-cols-3 gap-8 md:gap-12 mb-8">
           {/* Brand Column */}
           <div>
-            <div className="opacity-80 grayscale-[20%] hover:opacity-100 hover:grayscale-0 transition-all duration-300">
-              <Logo linkTo={ROUTES.home} size="md" color="dark" variant="full" className="mix-blend-multiply" />
-            </div>
-            <p className="mt-4 text-charcoal-600 text-sm leading-relaxed">
+            <h3 className="font-display text-xl text-charcoal-800 mb-2">
+              Good Nature
+            </h3>
+            <p className="text-charcoal-600 text-sm leading-relaxed">
               {SITE_INFO.tagline}
             </p>
           </div>

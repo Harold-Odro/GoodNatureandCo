@@ -6,7 +6,7 @@ export const SITE_INFO = {
 };
 
 export const CONTACT_INFO = {
-  phone: '(555) 123-4567',
+  phone: '(202) 948-4515',
   email: 'goodnatureandco@gmail.com',
   instagram: '@goodnaturefloral',
   instagramUrl: 'https://www.instagram.com/goodnaturefloralartistry?igsh=dGZ0ZzFpMnFkczM2',

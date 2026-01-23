@@ -15,9 +15,20 @@ export default function Gateway() {
 
       <GatewayHero />
 
-      <section className="py-16 md:py-24 bg-ivory-200">
-        <div className="container-custom">
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-8 md:gap-12 max-w-6xl mx-auto">
+      {/* Brand Cards Section */}
+      <section className="py-10 sm:py-16 md:py-20 bg-linen-100">
+        <div className="px-4 sm:px-6 lg:px-8">
+          {/* Section Header - Mobile Friendly */}
+          <div className="text-center mb-8 sm:mb-12">
+            <h2 className="text-2xl sm:text-3xl font-display text-charcoal-800 mb-2">
+              Our Brands
+            </h2>
+            <p className="text-charcoal-600 text-sm sm:text-base">
+              Explore what we offer
+            </p>
+          </div>
+
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 sm:gap-8 max-w-5xl mx-auto">
             <BrandCard
               title="Floral Artistry"
               tagline={FLORAL_INFO.tagline}
@@ -25,7 +36,7 @@ export default function Gateway() {
               services="Weddings • Events • Everyday"
               image="https://images.unsplash.com/photo-1490750967868-88aa4486c946?w=800&auto=format&fit=crop"
               linkTo={ROUTES.floralHome}
-              buttonText="Explore →"
+              buttonText="Explore Florals"
               delay="delay-1"
             />
 
@@ -33,14 +44,21 @@ export default function Gateway() {
               title="Body Care"
               tagline={BODYCARE_INFO.tagline}
               description={BODYCARE_INFO.description}
-              image="https://images.unsplash.com/photo-1556228578-8c89e6adf883?w=800&auto=format&fit=crop"
+              image="https://images.unsplash.com/photo-1608571423902-eed4a5ad8108?w=800&auto=format&fit=crop"
               linkTo={ROUTES.bodyCare}
-              buttonText="Notify Me"
+              buttonText="Get Notified"
               comingSoon={true}
-              delay="delay-3"
+              delay="delay-2"
             />
           </div>
         </div>
+      </section>
+
+      {/* Footer Tag */}
+      <section className="py-8 sm:py-10 bg-ivory-50 text-center">
+        <p className="text-charcoal-500 text-sm px-4">
+          Serving Reston, Virginia & surrounding areas
+        </p>
       </section>
     </GatewayLayout>
   );

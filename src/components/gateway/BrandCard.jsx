@@ -18,35 +18,43 @@ export function BrandCard({
   return (
     <div
       ref={ref}
-      className={`group bg-linen-100 rounded-2xl overflow-hidden shadow-lg card-hover border border-linen-300 ${className}`}
+      className={`group bg-ivory-50 rounded-3xl overflow-hidden shadow-xl active:scale-[0.98] transition-transform duration-200 ${className}`}
     >
       <Link to={comingSoon ? '#' : linkTo} className={comingSoon ? 'pointer-events-none' : ''}>
-        <div className="relative h-64 md:h-80 image-zoom-container overflow-hidden">
+        <div className="relative aspect-[4/3] sm:aspect-[16/10] overflow-hidden">
           <img
             src={image}
             alt={title}
-            className="w-full h-full object-cover image-zoom"
+            className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
           />
-          <div className="absolute inset-0 bg-gradient-to-t from-charcoal-900/60 to-transparent"></div>
+          <div className="absolute inset-0 bg-gradient-to-t from-charcoal-900/70 via-charcoal-900/20 to-transparent" />
 
-          {/* Hover Overlay */}
-          <div className="absolute inset-0 bg-sage-400/0 group-hover:bg-sage-400/20 transition-colors duration-500"></div>
+          {/* Coming Soon Badge */}
+          {comingSoon && (
+            <div className="absolute top-4 right-4 bg-ivory-50/90 backdrop-blur-sm text-charcoal-700 text-xs font-medium px-3 py-1.5 rounded-full">
+              Coming Soon
+            </div>
+          )}
+
+          {/* Title overlay on image for mobile */}
+          <div className="absolute bottom-0 left-0 right-0 p-5 sm:p-6">
+            <h2 className="text-2xl sm:text-3xl font-display text-ivory-50 drop-shadow-lg">
+              {title}
+            </h2>
+            <p className="font-display italic text-ivory-200 text-base sm:text-lg mt-1 drop-shadow-md">
+              {tagline}
+            </p>
+          </div>
         </div>
       </Link>
 
-      <div className="p-8">
-        <h2 className="text-2xl md:text-3xl font-display text-charcoal-800 mb-2 group-hover:text-sage-600 transition-colors duration-300">
-          {title}
-        </h2>
-        <p className="font-display italic text-sage-500 text-lg mb-4">
-          {tagline}
-        </p>
-        <p className="text-charcoal-600 mb-4 leading-relaxed">
+      <div className="p-5 sm:p-6">
+        <p className="text-charcoal-600 text-sm sm:text-base leading-relaxed mb-4">
           {description}
         </p>
 
         {services && (
-          <p className="text-sm text-charcoal-500 mb-6">
+          <p className="text-xs sm:text-sm text-sage-600 font-medium mb-5">
             {services}
           </p>
         )}
@@ -54,7 +62,8 @@ export function BrandCard({
         <Button
           href={linkTo}
           variant={comingSoon ? 'outline' : 'primary'}
-          className="w-full md:w-auto"
+          size="lg"
+          className="w-full justify-center"
         >
           {buttonText}
         </Button>

@@ -11,11 +11,11 @@ export function FeaturedWork() {
   const [buttonRef, , buttonClass] = useAnimation('fade-up', 0.1, 'delay-5');
 
   return (
-    <section className="py-16 md:py-24 bg-ivory-50">
+    <section className="py-12 md:py-16 bg-ivory-50">
       <div className="container-custom">
         <SectionHeading title="Recent Creations" animated />
 
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-12">
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-4 md:gap-5 mb-8">
           {featuredItems.map((item, index) => (
             <FeaturedItem key={item.id} item={item} delay={delays[index]} />
           ))}

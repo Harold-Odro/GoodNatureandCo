@@ -11,14 +11,14 @@ export const portfolioItems = [
     title: 'Modern Minimalist Ceremony',
     category: 'weddings',
     description: 'Clean lines and elegant white blooms for a contemporary wedding aesthetic.',
-    image: 'https://images.unsplash.com/photo-1606800052052-a08af7148866?w=800&auto=format&fit=crop'
+    image: 'https://images.unsplash.com/photo-1522057384400-681b421cfebc?w=800&auto=format&fit=crop'
   },
   {
     id: '3',
     title: 'Bohemian Bridal Bouquet',
     category: 'weddings',
     description: 'Wild and free-spirited arrangement with textured foliage and soft pastels.',
-    image: 'https://images.unsplash.com/photo-1535131749006-b7f58c99034b?w=800&auto=format&fit=crop'
+    image: 'https://images.unsplash.com/photo-1561181286-d3fee7d55364?w=800&auto=format&fit=crop'
   },
   {
     id: '4',

@@ -1,4 +1,5 @@
 import { Routes, Route } from 'react-router-dom'
+import { ScrollToTop } from './components/common/ScrollToTop'
 import { CartDrawer } from './components/common/CartDrawer'
 import Gateway from './pages/Gateway'
 import FloralHome from './pages/floral/FloralHome'
@@ -11,6 +12,7 @@ import ComingSoon from './pages/bodycare/ComingSoon'
 function App() {
   return (
     <>
+      <ScrollToTop />
       <Routes>
         <Route path="/" element={<Gateway />} />
         <Route path="/floral-artistry" element={<FloralHome />} />
