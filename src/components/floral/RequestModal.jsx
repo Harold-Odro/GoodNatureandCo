@@ -130,7 +130,7 @@ export function RequestModal({ item, onClose }) {
                   alt={item.title}
                   className="w-full aspect-square object-cover"
                 />
-                <div className="absolute inset-0 bg-gradient-to-t from-charcoal-900/60 to-transparent"></div>
+                <div className="absolute inset-0 bg-linear-to-t from-charcoal-900/60 to-transparent"></div>
                 <div className="absolute bottom-0 left-0 right-0 p-4 text-white">
                   <p className="text-xs uppercase tracking-wider text-ivory-200 mb-1">
                     {categoryLabels[item.category]}

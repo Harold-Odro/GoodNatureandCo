@@ -31,7 +31,7 @@ export function Header({ logoLinkTo = null, navItems = [], showCart = false }) {
       <div className="w-full px-4 sm:px-6 lg:px-10 xl:px-16">
         <div className="flex items-center justify-between h-20">
           {/* Logo - left side */}
-          <div className="flex-shrink-0">
+          <div className="shrink-0">
             <Logo linkTo={logoLinkTo} size="md" color="dark" variant="full" />
           </div>
 

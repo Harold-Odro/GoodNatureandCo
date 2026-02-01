@@ -11,13 +11,13 @@ export function InquiryServiceCard({ service, delay = '' }) {
       className={`bg-ivory-50 rounded-2xl overflow-hidden shadow-lg hover:shadow-xl transition-all duration-300 group ${className}`}
     >
       {/* Service Image */}
-      <div className="relative aspect-[4/3] overflow-hidden">
+      <div className="relative aspect-4/3 overflow-hidden">
         <img
           src={service.image}
           alt={service.name}
           className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
         />
-        <div className="absolute inset-0 bg-gradient-to-t from-charcoal-900/60 via-charcoal-900/20 to-transparent" />
+        <div className="absolute inset-0 bg-linear-to-t from-charcoal-900/60 via-charcoal-900/20 to-transparent" />
         <span className="absolute top-4 left-4 bg-sage-600 text-ivory-50 text-xs font-medium px-3 py-1.5 rounded-full">
           Inquiry Only
         </span>

@@ -66,7 +66,7 @@ export function FloralHero() {
             />
           </div>
         ))}
-        <div className="absolute inset-0 bg-gradient-to-b from-charcoal-900/30 via-charcoal-900/40 to-charcoal-900/60"></div>
+        <div className="absolute inset-0 bg-linear-to-b from-charcoal-900/30 via-charcoal-900/40 to-charcoal-900/60"></div>
       </div>
 
       {/* Decorative Elements */}

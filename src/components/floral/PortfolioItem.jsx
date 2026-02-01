@@ -33,7 +33,7 @@ export function PortfolioItem({ item, onClick, onRequest, delay = '' }) {
       </button>
 
       {/* Hover overlay */}
-      <div className="absolute inset-0 bg-gradient-to-t from-charcoal-900/90 via-charcoal-900/50 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 pointer-events-none">
+      <div className="absolute inset-0 bg-linear-to-t from-charcoal-900/90 via-charcoal-900/50 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 pointer-events-none">
         <div className="absolute bottom-0 left-0 right-0 p-4 md:p-6 text-white pointer-events-auto">
           <p className="text-xs uppercase tracking-wider text-ivory-200 mb-1">
             {categoryLabels[item.category]}

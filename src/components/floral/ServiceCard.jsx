@@ -17,7 +17,7 @@ export function ServiceCard({ service, delay = '' }) {
           alt={service.title}
           className="w-full h-full object-cover image-zoom"
         />
-        <div className="absolute inset-0 bg-gradient-to-t from-charcoal-900/60 to-transparent"></div>
+        <div className="absolute inset-0 bg-linear-to-t from-charcoal-900/60 to-transparent"></div>
 
         {/* Hover Overlay */}
         <div className="absolute inset-0 bg-sage-600/0 group-hover:bg-sage-600/20 transition-colors duration-500"></div>
