@@ -58,7 +58,11 @@ export function FloralHero() {
           >
             <img
               src={image.src}
+              srcSet={`${image.src.split('?')[0]}?w=800&auto=format&fit=crop 800w, ${image.src.split('?')[0]}?w=1200&auto=format&fit=crop 1200w, ${image.src.split('?')[0]}?w=1600&auto=format&fit=crop 1600w`}
+              sizes="100vw"
               alt={image.alt}
+              loading={index === 0 ? 'eager' : 'lazy'}
+              decoding={index === 0 ? 'sync' : 'async'}
               className="w-full h-full object-cover scale-105"
               style={{
                 animation: index === currentSlide ? 'kenburns 20s ease-in-out infinite alternate' : 'none'
@@ -70,8 +74,8 @@ export function FloralHero() {
       </div>
 
       {/* Decorative Elements */}
-      <div className="absolute top-20 left-10 w-32 h-32 border border-ivory-100/20 rounded-full"></div>
-      <div className="absolute bottom-20 right-10 w-48 h-48 border border-ivory-100/10 rounded-full"></div>
+      <div aria-hidden="true" className="absolute top-20 left-10 w-32 h-32 border border-ivory-100/20 rounded-full"></div>
+      <div aria-hidden="true" className="absolute bottom-20 right-10 w-48 h-48 border border-ivory-100/10 rounded-full"></div>
 
       {/* Content */}
       <div className="relative z-10 text-center px-4 max-w-4xl mx-auto">

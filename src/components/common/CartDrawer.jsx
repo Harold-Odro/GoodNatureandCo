@@ -3,6 +3,7 @@ import { useCart } from '../../context/CartContext';
 import { Button } from './Button';
 import { OrderRequestModal } from './OrderRequestModal';
 import { ROUTES } from '../../utils/constants';
+import { useFocusTrap } from '../../hooks/useFocusTrap';
 
 export function CartDrawer() {
   const {
@@ -16,6 +17,7 @@ export function CartDrawer() {
   } = useCart();
 
   const [isOrderModalOpen, setIsOrderModalOpen] = useState(false);
+  const focusTrapRef = useFocusTrap(isCartOpen);
 
   const handleCheckout = () => {
     closeCart();
@@ -67,11 +69,17 @@ export function CartDrawer() {
       />
 
       {/* Drawer */}
-      <div className="fixed top-0 right-0 h-full w-full max-w-md bg-ivory-50 z-50 shadow-2xl transform transition-transform">
+      <div
+        ref={focusTrapRef}
+        role="dialog"
+        aria-modal="true"
+        aria-labelledby="cart-drawer-title"
+        className="fixed top-0 right-0 h-full w-full max-w-md bg-ivory-50 z-50 shadow-2xl transform transition-transform"
+      >
         <div className="flex flex-col h-full">
           {/* Header */}
           <div className="flex items-center justify-between p-6 border-b border-linen-300">
-            <h2 className="text-xl font-display text-charcoal-800">
+            <h2 id="cart-drawer-title" className="text-xl font-display text-charcoal-800">
               Your Cart ({getCartCount()})
             </h2>
             <button
@@ -107,6 +115,8 @@ export function CartDrawer() {
                     <img
                       src={item.image}
                       alt={item.productName}
+                      loading="lazy"
+                      decoding="async"
                       className="w-20 h-20 object-cover rounded-lg"
                     />
                     <div className="flex-1">

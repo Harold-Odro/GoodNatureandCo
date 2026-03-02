@@ -59,6 +59,8 @@ VITE_EMAILJS_SERVICE_ID=your_service_id
 VITE_EMAILJS_CONTACT_TEMPLATE_ID=your_contact_template_id
 VITE_EMAILJS_NOTIFY_TEMPLATE_ID=your_notify_template_id
 VITE_EMAILJS_PUBLIC_KEY=your_public_key
+VITE_GA_MEASUREMENT_ID=your_ga_measurement_id          # Optional: Google Analytics
+VITE_CMS_API_URL=your_cms_api_url                       # Optional: CMS API for dynamic content
 ```
 
 ## SEO Implementation

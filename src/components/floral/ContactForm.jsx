@@ -3,7 +3,7 @@ import { Button } from '../common/Button';
 import { useEmailJS } from '../../hooks/useEmailJS';
 
 export function ContactForm() {
-  const { sendEmail, status, error, reset } = useEmailJS();
+  const { sendEmail, status, error, reset, retry, canRetry } = useEmailJS();
   const [formData, setFormData] = useState({
     name: '',
     email: '',
@@ -88,11 +88,13 @@ export function ContactForm() {
           name="name"
           value={formData.name}
           onChange={handleChange}
+          aria-invalid={errors.name ? 'true' : 'false'}
+          aria-describedby={errors.name ? 'name-error' : undefined}
           className={`w-full px-4 py-3 rounded-xl border-2 transition-colors focus:outline-none focus:ring-2 focus:ring-sage-500 ${
             errors.name ? 'border-terracotta-500' : 'border-sage-200 focus:border-sage-400'
           }`}
         />
-        {errors.name && <p className="mt-1 text-sm text-terracotta-600">{errors.name}</p>}
+        {errors.name && <p id="name-error" role="alert" className="mt-1 text-sm text-terracotta-600">{errors.name}</p>}
       </div>
 
       {/* Email */}
@@ -106,11 +108,13 @@ export function ContactForm() {
           name="email"
           value={formData.email}
           onChange={handleChange}
+          aria-invalid={errors.email ? 'true' : 'false'}
+          aria-describedby={errors.email ? 'email-error' : undefined}
           className={`w-full px-4 py-3 rounded-xl border-2 transition-colors focus:outline-none focus:ring-2 focus:ring-sage-500 ${
             errors.email ? 'border-terracotta-500' : 'border-sage-200 focus:border-sage-400'
           }`}
         />
-        {errors.email && <p className="mt-1 text-sm text-terracotta-600">{errors.email}</p>}
+        {errors.email && <p id="email-error" role="alert" className="mt-1 text-sm text-terracotta-600">{errors.email}</p>}
       </div>
 
       {/* Phone */}
@@ -174,11 +178,13 @@ export function ContactForm() {
           rows="5"
           value={formData.message}
           onChange={handleChange}
+          aria-invalid={errors.message ? 'true' : 'false'}
+          aria-describedby={errors.message ? 'message-error' : undefined}
           className={`w-full px-4 py-3 rounded-xl border-2 transition-colors focus:outline-none focus:ring-2 focus:ring-sage-500 resize-none ${
             errors.message ? 'border-terracotta-500' : 'border-sage-200 focus:border-sage-400'
           }`}
         ></textarea>
-        {errors.message && <p className="mt-1 text-sm text-terracotta-600">{errors.message}</p>}
+        {errors.message && <p id="message-error" role="alert" className="mt-1 text-sm text-terracotta-600">{errors.message}</p>}
       </div>
 
       {/* Status Messages */}
@@ -191,8 +197,17 @@ export function ContactForm() {
       {status === 'error' && (
         <div className="p-4 bg-terracotta-100 border-2 border-terracotta-300 rounded-xl">
           <p className="text-terracotta-800 font-medium">
-            Something went wrong. Please try again or contact us directly.
+            {error}
           </p>
+          {canRetry && (
+            <button
+              type="button"
+              onClick={retry}
+              className="mt-2 text-sm text-terracotta-700 underline hover:text-terracotta-900 transition-colors"
+            >
+              Try again
+            </button>
+          )}
         </div>
       )}
 

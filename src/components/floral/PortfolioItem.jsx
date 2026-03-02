@@ -28,6 +28,8 @@ export function PortfolioItem({ item, onClick, onRequest, delay = '' }) {
         <img
           src={item.image}
           alt={item.title}
+          loading="lazy"
+          decoding="async"
           className="w-full h-full object-cover image-zoom"
         />
       </button>

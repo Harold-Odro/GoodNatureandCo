@@ -36,6 +36,8 @@ function IntroductionSection() {
               <img
                 src="https://images.unsplash.com/photo-1487070183336-b863922373d4?w=800&auto=format&fit=crop"
                 alt="Natural floral arrangement"
+                loading="lazy"
+                decoding="async"
                 className="w-full h-full object-cover"
               />
             </div>

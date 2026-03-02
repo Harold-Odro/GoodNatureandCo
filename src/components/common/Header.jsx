@@ -2,6 +2,7 @@ import { useState, useEffect } from 'react';
 import { Link, useLocation } from 'react-router-dom';
 import { Logo } from './Logo';
 import { CartButton } from './CartButton';
+import { ThemeToggle } from './ThemeToggle';
 import { ROUTES } from '../../utils/constants';
 
 export function Header({ logoLinkTo = null, navItems = [], showCart = false }) {
@@ -25,7 +26,7 @@ export function Header({ logoLinkTo = null, navItems = [], showCart = false }) {
   return (
     <header
       className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
-        scrolled ? 'bg-ivory-100/95 backdrop-blur-sm shadow-md' : 'bg-transparent'
+        scrolled ? 'bg-ivory-100/95 dark:bg-charcoal-800/95 backdrop-blur-sm shadow-md' : 'bg-transparent'
       }`}
     >
       <div className="w-full px-4 sm:px-6 lg:px-10 xl:px-16">
@@ -61,8 +62,9 @@ export function Header({ logoLinkTo = null, navItems = [], showCart = false }) {
               </nav>
             )}
 
-            {/* Cart Button & Mobile Menu Button */}
+            {/* Theme Toggle, Cart Button & Mobile Menu Button */}
             <div className="flex items-center gap-2">
+              <ThemeToggle />
               {showCart && <CartButton />}
 
               {navItems.length > 0 && (

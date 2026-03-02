@@ -14,7 +14,7 @@ export function FloralLayout({ children, showCart = false }) {
   return (
     <div className="min-h-screen flex flex-col">
       <Header logoLinkTo={ROUTES.home} navItems={navItems} showCart={showCart} />
-      <main className="flex-grow pt-20">
+      <main id="main-content" className="flex-grow pt-20">
         {children}
       </main>
       <Footer variant="full" />

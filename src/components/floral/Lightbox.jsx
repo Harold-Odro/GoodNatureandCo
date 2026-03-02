@@ -1,6 +1,8 @@
 import { useEffect } from 'react';
+import { useFocusTrap } from '../../hooks/useFocusTrap';
 
 export function Lightbox({ item, onClose, onNext, onPrev, onRequest }) {
+  const focusTrapRef = useFocusTrap(true);
   useEffect(() => {
     const handleKeyDown = (e) => {
       if (e.key === 'Escape') onClose();
@@ -32,6 +34,10 @@ export function Lightbox({ item, onClose, onNext, onPrev, onRequest }) {
 
   return (
     <div
+      ref={focusTrapRef}
+      role="dialog"
+      aria-modal="true"
+      aria-labelledby="lightbox-title"
       className="fixed inset-0 z-50 bg-charcoal-900/95 flex items-center justify-center p-4"
       onClick={onClose}
     >
@@ -83,6 +89,8 @@ export function Lightbox({ item, onClose, onNext, onPrev, onRequest }) {
           <img
             src={item.image}
             alt={item.title}
+            loading="eager"
+            decoding="async"
             className="w-full h-full object-cover"
           />
         </div>
@@ -92,7 +100,7 @@ export function Lightbox({ item, onClose, onNext, onPrev, onRequest }) {
               <p className="text-xs uppercase tracking-wider text-sage-600 mb-2">
                 {categoryLabels[item.category]}
               </p>
-              <h2 className="text-2xl md:text-3xl font-display text-charcoal-800 mb-3">
+              <h2 id="lightbox-title" className="text-2xl md:text-3xl font-display text-charcoal-800 mb-3">
                 {item.title}
               </h2>
               <p className="text-charcoal-700 leading-relaxed">

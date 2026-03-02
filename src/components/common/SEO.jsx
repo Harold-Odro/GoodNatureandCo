@@ -5,7 +5,8 @@ export function SEO({
   description,
   canonical,
   ogImage,
-  schema
+  schema,
+  noindex = false
 }) {
   const siteUrl = 'https://goodnature.com';
   const defaultOgImage = `${siteUrl}/og-image.jpg`;
@@ -14,7 +15,8 @@ export function SEO({
     <Helmet>
       <title>{title}</title>
       <meta name="description" content={description} />
-      <link rel="canonical" href={`${siteUrl}${canonical}`} />
+      {canonical && <link rel="canonical" href={`${siteUrl}${canonical}`} />}
+      {noindex && <meta name="robots" content="noindex, nofollow" />}
 
       {/* Open Graph */}
       <meta property="og:title" content={title} />

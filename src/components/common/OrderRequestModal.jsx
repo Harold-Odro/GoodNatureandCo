@@ -2,10 +2,12 @@ import { useState, useEffect } from 'react';
 import { useCart } from '../../context/CartContext';
 import { useEmailJS } from '../../hooks/useEmailJS';
 import { Button } from './Button';
+import { useFocusTrap } from '../../hooks/useFocusTrap';
 
 export function OrderRequestModal({ isOpen, onClose }) {
+  const focusTrapRef = useFocusTrap(isOpen);
   const { cart, getCartTotal, clearCart } = useCart();
-  const { sendEmail, status, error, reset } = useEmailJS();
+  const { sendEmail, status, error, reset, retry, canRetry } = useEmailJS();
 
   const [formData, setFormData] = useState({
     name: '',
@@ -152,7 +154,7 @@ ${formData.message || 'None'}
   if (!isOpen) return null;
 
   return (
-    <div className="fixed inset-0 z-50 flex items-center justify-center p-4">
+    <div ref={focusTrapRef} className="fixed inset-0 z-50 flex items-center justify-center p-4">
       {/* Backdrop */}
       <div
         className="absolute inset-0 bg-charcoal-900/80"
@@ -365,8 +367,17 @@ ${formData.message || 'None'}
               {status === 'error' && (
                 <div className="p-4 bg-terracotta-100 border-2 border-terracotta-300 rounded-lg">
                   <p className="text-terracotta-800 font-medium text-sm">
-                    Something went wrong. Please try again or contact us directly.
+                    {error}
                   </p>
+                  {canRetry && (
+                    <button
+                      type="button"
+                      onClick={retry}
+                      className="mt-2 text-sm text-terracotta-700 underline hover:text-terracotta-900 transition-colors"
+                    >
+                      Try again
+                    </button>
+                  )}
                 </div>
               )}
 

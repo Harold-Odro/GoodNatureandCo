@@ -3,7 +3,7 @@ import { Footer } from '../components/common/Footer';
 export function BodyCareLayout({ children }) {
   return (
     <div className="min-h-screen flex flex-col">
-      <main className="flex-grow">
+      <main id="main-content" className="flex-grow">
         {children}
       </main>
       <Footer variant="minimal" />

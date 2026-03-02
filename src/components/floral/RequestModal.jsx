@@ -1,9 +1,11 @@
 import { useState, useEffect } from 'react';
 import { Button } from '../common/Button';
 import { useEmailJS } from '../../hooks/useEmailJS';
+import { useFocusTrap } from '../../hooks/useFocusTrap';
 
 export function RequestModal({ item, onClose }) {
-  const { sendEmail, status, error, reset } = useEmailJS();
+  const focusTrapRef = useFocusTrap(true);
+  const { sendEmail, status, error, reset, retry, canRetry } = useEmailJS();
   const [formData, setFormData] = useState({
     name: '',
     email: '',
@@ -96,6 +98,7 @@ export function RequestModal({ item, onClose }) {
 
   return (
     <div
+      ref={focusTrapRef}
       className="fixed inset-0 z-50 bg-charcoal-900/95 flex items-center justify-center p-4 overflow-y-auto"
       onClick={onClose}
     >
@@ -128,6 +131,8 @@ export function RequestModal({ item, onClose }) {
                 <img
                   src={item.image}
                   alt={item.title}
+                  loading="eager"
+                  decoding="async"
                   className="w-full aspect-square object-cover"
                 />
                 <div className="absolute inset-0 bg-linear-to-t from-charcoal-900/60 to-transparent"></div>
@@ -252,8 +257,17 @@ export function RequestModal({ item, onClose }) {
               {status === 'error' && (
                 <div className="p-4 bg-terracotta-100 border-2 border-terracotta-300 rounded-lg">
                   <p className="text-terracotta-800 font-medium text-sm">
-                    Something went wrong. Please try again or contact us directly.
+                    {error}
                   </p>
+                  {canRetry && (
+                    <button
+                      type="button"
+                      onClick={retry}
+                      className="mt-2 text-sm text-terracotta-700 underline hover:text-terracotta-900 transition-colors"
+                    >
+                      Try again
+                    </button>
+                  )}
                 </div>
               )}
 

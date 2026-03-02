@@ -21,8 +21,11 @@ function PortfolioHero() {
       {/* Background Image */}
       <div className="absolute inset-0">
         <img
-          src="https://images.unsplash.com/photo-1519225421980-715cb0215aed?w=1920&auto=format&fit=crop&q=80"
+          src="https://images.unsplash.com/photo-1519225421980-715cb0215aed?w=1200&auto=format&fit=crop&q=80"
+          srcSet="https://images.unsplash.com/photo-1519225421980-715cb0215aed?w=800&auto=format&fit=crop&q=80 800w, https://images.unsplash.com/photo-1519225421980-715cb0215aed?w=1200&auto=format&fit=crop&q=80 1200w, https://images.unsplash.com/photo-1519225421980-715cb0215aed?w=1920&auto=format&fit=crop&q=80 1920w"
+          sizes="100vw"
           alt=""
+          loading="eager"
           className="w-full h-full object-cover"
         />
         <div className="absolute inset-0 bg-charcoal-900/40" />
