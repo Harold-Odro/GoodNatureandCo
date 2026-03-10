@@ -22,7 +22,7 @@ function ShopHero() {
           className="w-full h-full object-cover"
         />
         <div className="absolute inset-0 bg-charcoal-900/40" />
-        <div className="absolute inset-0 bg-gradient-to-t from-charcoal-900/60 via-transparent to-charcoal-900/20" />
+        <div className="absolute inset-0 bg-linear-to-t from-charcoal-900/60 via-transparent to-charcoal-900/20" />
       </div>
 
       <div className="container-custom text-center relative z-10">
@@ -188,6 +188,22 @@ function DeliveryInfo() {
   );
 }
 
+const shopSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'Florist',
+  name: 'Good Nature Floral Artistry',
+  description: 'Hand-crafted floral arrangements for delivery in Reston, Virginia.',
+  url: 'https://goodnature.com/floral-artistry/shop',
+  telephone: '(202) 948-4515',
+  address: {
+    '@type': 'PostalAddress',
+    addressLocality: 'Reston',
+    addressRegion: 'VA',
+    addressCountry: 'US'
+  },
+  priceRange: '$$'
+};
+
 export default function Shop() {
   return (
     <FloralLayout showCart={true}>
@@ -195,6 +211,7 @@ export default function Shop() {
         title="Shop Flowers | Good Nature Floral Artistry"
         description="Shop our collection of hand-crafted floral arrangements. Premium roses, seasonal bouquets, and more. Local delivery in Reston, Virginia."
         canonical="/floral-artistry/shop"
+        schema={shopSchema}
       />
 
       <ShopHero />

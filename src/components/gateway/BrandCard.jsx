@@ -21,7 +21,7 @@ export function BrandCard({
       className={`group bg-ivory-50 rounded-3xl overflow-hidden shadow-xl active:scale-[0.98] transition-transform duration-200 ${className}`}
     >
       <Link to={comingSoon ? '#' : linkTo} className={comingSoon ? 'pointer-events-none' : ''}>
-        <div className="relative aspect-[4/3] sm:aspect-[16/10] overflow-hidden">
+        <div className="relative aspect-4/3 sm:aspect-16/10 overflow-hidden">
           <img
             src={image}
             alt={title}
@@ -29,7 +29,7 @@ export function BrandCard({
             decoding="async"
             className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
           />
-          <div className="absolute inset-0 bg-gradient-to-t from-charcoal-900/70 via-charcoal-900/20 to-transparent" />
+          <div className="absolute inset-0 bg-linear-to-t from-charcoal-900/70 via-charcoal-900/20 to-transparent" />
 
           {/* Coming Soon Badge */}
           {comingSoon && (

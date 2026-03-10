@@ -1,4 +1,5 @@
 User-agent: *
 Allow: /
+Disallow: /body-care
 
 Sitemap: https://goodnature.com/sitemap.xml

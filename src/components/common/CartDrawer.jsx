@@ -2,6 +2,7 @@ import { useEffect, useState } from 'react';
 import { useCart } from '../../context/CartContext';
 import { Button } from './Button';
 import { OrderRequestModal } from './OrderRequestModal';
+import { Portal } from './Portal';
 import { ROUTES } from '../../utils/constants';
 import { useFocusTrap } from '../../hooks/useFocusTrap';
 
@@ -61,7 +62,7 @@ export function CartDrawer() {
 
       {/* Cart Drawer - only render if cart is open */}
       {!isCartOpen ? null : (
-      <>
+      <Portal>
       {/* Backdrop */}
       <div
         className="fixed inset-0 bg-charcoal-900/50 z-40 transition-opacity"
@@ -200,7 +201,7 @@ export function CartDrawer() {
           )}
         </div>
       </div>
-      </>
+      </Portal>
       )}
     </>
   );

@@ -167,11 +167,41 @@
     border-color: var(--color-charcoal-500);
   }
 
+  .dark .bg-linen-300 {
+    background-color: var(--color-charcoal-600);
+  }
+
+  .dark .bg-ivory-50\/95 {
+    background-color: rgba(45, 45, 43, 0.95);
+  }
+
+  .dark .text-linen-200\/60 {
+    color: rgba(61, 61, 58, 0.6);
+  }
+
+  .dark .text-charcoal-400 {
+    color: var(--color-ivory-400);
+  }
+
+  .dark .border-linen-400\/50 {
+    border-color: rgba(82, 82, 77, 0.5);
+  }
+
   .dark .shadow-md,
   .dark .shadow-lg,
   .dark .shadow-xl,
   .dark .shadow-2xl {
     --tw-shadow-color: rgba(0, 0, 0, 0.3);
+  }
+
+  .dark input:focus,
+  .dark textarea:focus,
+  .dark select:focus {
+    border-color: var(--color-sage-500);
+  }
+
+  .dark :focus-visible {
+    outline-color: var(--color-sage-400);
   }
 
   h1, h2, h3, h4, h5, h6 {

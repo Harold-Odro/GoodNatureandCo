@@ -78,7 +78,7 @@ export function ProductCard({ product, delay = '' }) {
               const size = product.sizes.find(s => s.id === e.target.value);
               setSelectedSize(size);
             }}
-            className="w-full px-4 py-3 rounded-xl border-2 border-linen-300 focus:border-sage-400 transition-colors focus:outline-none focus:ring-2 focus:ring-sage-500 bg-white"
+            className="w-full px-4 py-3 rounded-xl border-2 border-linen-300 focus:border-sage-400 transition-colors focus:outline-none focus:ring-2 focus:ring-sage-500 bg-white text-charcoal-800"
           >
             {product.sizes.map((size) => (
               <option key={size.id} value={size.id}>
@@ -99,7 +99,7 @@ export function ProductCard({ product, delay = '' }) {
               const option = product.options.find(o => o.id === e.target.value);
               setSelectedOption(option);
             }}
-            className="w-full px-4 py-3 rounded-xl border-2 border-linen-300 focus:border-sage-400 transition-colors focus:outline-none focus:ring-2 focus:ring-sage-500 bg-white"
+            className="w-full px-4 py-3 rounded-xl border-2 border-linen-300 focus:border-sage-400 transition-colors focus:outline-none focus:ring-2 focus:ring-sage-500 bg-white text-charcoal-800"
           >
             {product.options.map((option) => (
               <option key={option.id} value={option.id}>

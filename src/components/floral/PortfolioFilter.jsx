@@ -16,6 +16,7 @@ export function PortfolioFilter({ activeFilter, onFilterChange }) {
         <button
           key={filter.id}
           onClick={() => onFilterChange(filter.id)}
+          aria-pressed={activeFilter === filter.id}
           className={`px-6 py-2 rounded-full font-medium transition-all duration-300 ${
             activeFilter === filter.id
               ? 'bg-sage-500 text-ivory-50 shadow-md'

@@ -1,7 +1,9 @@
 import { useState, useEffect } from 'react';
 import { Button } from '../common/Button';
+import { Portal } from '../common/Portal';
 import { useEmailJS } from '../../hooks/useEmailJS';
 import { useFocusTrap } from '../../hooks/useFocusTrap';
+import { validateEmail, validateRequired } from '../../utils/validators';
 
 export function RequestModal({ item, onClose }) {
   const focusTrapRef = useFocusTrap(true);
@@ -46,19 +48,14 @@ export function RequestModal({ item, onClose }) {
   const validate = () => {
     const newErrors = {};
 
-    if (!formData.name.trim()) {
-      newErrors.name = 'Name is required';
-    }
+    const nameErr = validateRequired(formData.name, 'Name');
+    if (nameErr) newErrors.name = nameErr;
 
-    if (!formData.email.trim()) {
-      newErrors.email = 'Email is required';
-    } else if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(formData.email)) {
-      newErrors.email = 'Please enter a valid email';
-    }
+    const emailErr = validateEmail(formData.email);
+    if (emailErr) newErrors.email = emailErr;
 
-    if (!formData.message.trim()) {
-      newErrors.message = 'Message is required';
-    }
+    const msgErr = validateRequired(formData.message, 'Message');
+    if (msgErr) newErrors.message = msgErr;
 
     setErrors(newErrors);
     return Object.keys(newErrors).length === 0;
@@ -97,6 +94,7 @@ export function RequestModal({ item, onClose }) {
   };
 
   return (
+    <Portal>
     <div
       ref={focusTrapRef}
       className="fixed inset-0 z-50 bg-charcoal-900/95 flex items-center justify-center p-4 overflow-y-auto"
@@ -121,7 +119,7 @@ export function RequestModal({ item, onClose }) {
         <div className="grid grid-cols-1 lg:grid-cols-2">
           {/* Product Image Section */}
           <div className="relative bg-linen-100 p-6 lg:p-8">
-            <div className="sticky top-8">
+            <div className="lg:sticky lg:top-8">
               <h3 className="text-sm uppercase tracking-wider text-sage-600 mb-4 font-medium">
                 Requesting
               </h3>
@@ -160,6 +158,7 @@ export function RequestModal({ item, onClose }) {
             </p>
 
             <form onSubmit={handleSubmit} className="space-y-4">
+              <fieldset disabled={status === 'loading'} className="space-y-4">
               {/* Name */}
               <div>
                 <label htmlFor="request-name" className="block text-sm font-medium text-charcoal-800 mb-1">
@@ -282,10 +281,12 @@ export function RequestModal({ item, onClose }) {
               >
                 {status === 'loading' ? 'Sending...' : 'Send Request'}
               </Button>
+              </fieldset>
             </form>
           </div>
         </div>
       </div>
     </div>
+    </Portal>
   );
 }

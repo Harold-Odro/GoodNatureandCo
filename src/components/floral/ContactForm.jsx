@@ -1,6 +1,7 @@
 import { useState } from 'react';
 import { Button } from '../common/Button';
 import { useEmailJS } from '../../hooks/useEmailJS';
+import { validateEmail, validateRequired } from '../../utils/validators';
 
 export function ContactForm() {
   const { sendEmail, status, error, reset, retry, canRetry } = useEmailJS();
@@ -26,19 +27,14 @@ export function ContactForm() {
   const validate = () => {
     const newErrors = {};
 
-    if (!formData.name.trim()) {
-      newErrors.name = 'Name is required';
-    }
+    const nameErr = validateRequired(formData.name, 'Name');
+    if (nameErr) newErrors.name = nameErr;
 
-    if (!formData.email.trim()) {
-      newErrors.email = 'Email is required';
-    } else if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(formData.email)) {
-      newErrors.email = 'Please enter a valid email';
-    }
+    const emailErr = validateEmail(formData.email);
+    if (emailErr) newErrors.email = emailErr;
 
-    if (!formData.message.trim()) {
-      newErrors.message = 'Message is required';
-    }
+    const msgErr = validateRequired(formData.message, 'Message');
+    if (msgErr) newErrors.message = msgErr;
 
     setErrors(newErrors);
     return Object.keys(newErrors).length === 0;
@@ -77,6 +73,7 @@ export function ContactForm() {
 
   return (
     <form onSubmit={handleSubmit} className="space-y-6">
+      <fieldset disabled={status === 'loading'} className="space-y-6">
       {/* Name */}
       <div>
         <label htmlFor="name" className="block text-sm font-medium text-charcoal-800 mb-2">
@@ -222,6 +219,7 @@ export function ContactForm() {
       >
         {status === 'loading' ? 'Sending...' : 'Send Message'}
       </Button>
+      </fieldset>
     </form>
   );
 }

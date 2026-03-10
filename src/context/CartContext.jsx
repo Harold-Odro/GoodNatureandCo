@@ -42,7 +42,7 @@ export function CartProvider({ children }) {
         return newCart;
       }
 
-      return [...prevCart, { ...item, id: Date.now().toString() }];
+      return [...prevCart, { ...item, id: `${Date.now()}-${Math.random().toString(36).slice(2, 9)}` }];
     });
   };
 

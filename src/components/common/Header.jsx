@@ -3,7 +3,7 @@ import { Link, useLocation } from 'react-router-dom';
 import { Logo } from './Logo';
 import { CartButton } from './CartButton';
 import { ThemeToggle } from './ThemeToggle';
-import { ROUTES } from '../../utils/constants';
+
 
 export function Header({ logoLinkTo = null, navItems = [], showCart = false }) {
   const [scrolled, setScrolled] = useState(false);

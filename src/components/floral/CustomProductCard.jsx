@@ -111,7 +111,7 @@ export function CustomProductCard({ product, delay = '' }) {
                 onChange={(e) =>
                   handleSelectionChange(customization.id, e.target.value, customization)
                 }
-                className="w-full px-4 py-3 rounded-xl border-2 border-linen-300 focus:border-sage-400 transition-colors focus:outline-none focus:ring-2 focus:ring-sage-500 bg-white"
+                className="w-full px-4 py-3 rounded-xl border-2 border-linen-300 focus:border-sage-400 transition-colors focus:outline-none focus:ring-2 focus:ring-sage-500 bg-white text-charcoal-800"
               >
                 {customization.options.map((option) => (
                   <option key={option.id} value={option.id}>

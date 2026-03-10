@@ -29,7 +29,7 @@ function PortfolioHero() {
           className="w-full h-full object-cover"
         />
         <div className="absolute inset-0 bg-charcoal-900/40" />
-        <div className="absolute inset-0 bg-gradient-to-t from-charcoal-900/60 via-transparent to-charcoal-900/20" />
+        <div className="absolute inset-0 bg-linear-to-t from-charcoal-900/60 via-transparent to-charcoal-900/20" />
       </div>
 
       <div className="container-custom text-center relative z-10">

@@ -1,4 +1,7 @@
-const CACHE_NAME = 'good-nature-v1';
+const CACHE_NAME = 'good-nature-v2';
+const IMAGE_CACHE = 'good-nature-images-v1';
+const MAX_IMAGE_CACHE_SIZE = 50;
+
 const STATIC_ASSETS = [
   '/',
   '/manifest.json',
@@ -14,11 +17,12 @@ self.addEventListener('install', (event) => {
 
 // Activate event - clean old caches
 self.addEventListener('activate', (event) => {
+  const allowedCaches = [CACHE_NAME, IMAGE_CACHE];
   event.waitUntil(
     caches.keys().then((keys) =>
       Promise.all(
         keys
-          .filter((key) => key !== CACHE_NAME)
+          .filter((key) => !allowedCaches.includes(key))
           .map((key) => caches.delete(key))
       )
     )
@@ -26,7 +30,17 @@ self.addEventListener('activate', (event) => {
   self.clients.claim();
 });
 
-// Fetch event - network first, fallback to cache
+// Trim image cache to max size
+async function trimCache(cacheName, maxSize) {
+  const cache = await caches.open(cacheName);
+  const keys = await cache.keys();
+  if (keys.length > maxSize) {
+    await cache.delete(keys[0]);
+    await trimCache(cacheName, maxSize);
+  }
+}
+
+// Fetch event
 self.addEventListener('fetch', (event) => {
   const { request } = event;
 
@@ -39,15 +53,21 @@ self.addEventListener('fetch', (event) => {
     return;
   }
 
-  // For navigation requests, try network first
+  // For navigation requests, network first with offline fallback
   if (request.mode === 'navigate') {
     event.respondWith(
-      fetch(request).catch(() => caches.match('/'))
+      fetch(request)
+        .then((response) => {
+          const clone = response.clone();
+          caches.open(CACHE_NAME).then((cache) => cache.put(request, clone));
+          return response;
+        })
+        .catch(() => caches.match('/'))
     );
     return;
   }
 
-  // For images, cache first then network
+  // For images, cache first then network (separate cache with size limit)
   if (request.destination === 'image') {
     event.respondWith(
       caches.match(request).then((cached) => {
@@ -55,10 +75,36 @@ self.addEventListener('fetch', (event) => {
         return fetch(request).then((response) => {
           if (response.ok) {
             const clone = response.clone();
+            caches.open(IMAGE_CACHE).then((cache) => {
+              cache.put(request, clone);
+              trimCache(IMAGE_CACHE, MAX_IMAGE_CACHE_SIZE);
+            });
+          }
+          return response;
+        }).catch(() => {
+          // Return a transparent 1x1 pixel as fallback for failed images
+          return new Response(
+            '<svg xmlns="http://www.w3.org/2000/svg" width="1" height="1"/>',
+            { headers: { 'Content-Type': 'image/svg+xml' } }
+          );
+        });
+      })
+    );
+    return;
+  }
+
+  // For CSS/JS assets, stale-while-revalidate
+  if (request.destination === 'style' || request.destination === 'script') {
+    event.respondWith(
+      caches.match(request).then((cached) => {
+        const fetchPromise = fetch(request).then((response) => {
+          if (response.ok) {
+            const clone = response.clone();
             caches.open(CACHE_NAME).then((cache) => cache.put(request, clone));
           }
           return response;
         });
+        return cached || fetchPromise;
       })
     );
     return;

@@ -1,4 +1,5 @@
 import { useEffect } from 'react';
+import { Portal } from '../common/Portal';
 import { useFocusTrap } from '../../hooks/useFocusTrap';
 
 export function Lightbox({ item, onClose, onNext, onPrev, onRequest }) {
@@ -33,6 +34,7 @@ export function Lightbox({ item, onClose, onNext, onPrev, onRequest }) {
   };
 
   return (
+    <Portal>
     <div
       ref={focusTrapRef}
       role="dialog"
@@ -85,7 +87,7 @@ export function Lightbox({ item, onClose, onNext, onPrev, onRequest }) {
         className="max-w-5xl w-full bg-ivory-50 rounded-2xl overflow-hidden shadow-2xl"
         onClick={(e) => e.stopPropagation()}
       >
-        <div className="aspect-video md:aspect-[4/3]">
+        <div className="aspect-video md:aspect-4/3">
           <img
             src={item.image}
             alt={item.title}
@@ -123,5 +125,6 @@ export function Lightbox({ item, onClose, onNext, onPrev, onRequest }) {
         </div>
       </div>
     </div>
+    </Portal>
   );
 }

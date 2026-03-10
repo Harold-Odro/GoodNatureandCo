@@ -2,7 +2,9 @@ import { useState, useEffect } from 'react';
 import { useCart } from '../../context/CartContext';
 import { useEmailJS } from '../../hooks/useEmailJS';
 import { Button } from './Button';
+import { Portal } from './Portal';
 import { useFocusTrap } from '../../hooks/useFocusTrap';
+import { validateEmail, validateRequired } from '../../utils/validators';
 
 export function OrderRequestModal({ isOpen, onClose }) {
   const focusTrapRef = useFocusTrap(isOpen);
@@ -54,27 +56,20 @@ export function OrderRequestModal({ isOpen, onClose }) {
   const validate = () => {
     const newErrors = {};
 
-    if (!formData.name.trim()) {
-      newErrors.name = 'Name is required';
-    }
+    const nameErr = validateRequired(formData.name, 'Name');
+    if (nameErr) newErrors.name = nameErr;
 
-    if (!formData.email.trim()) {
-      newErrors.email = 'Email is required';
-    } else if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(formData.email)) {
-      newErrors.email = 'Please enter a valid email';
-    }
+    const emailErr = validateEmail(formData.email);
+    if (emailErr) newErrors.email = emailErr;
 
-    if (!formData.phone.trim()) {
-      newErrors.phone = 'Phone is required';
-    }
+    const phoneErr = validateRequired(formData.phone, 'Phone');
+    if (phoneErr) newErrors.phone = phoneErr;
 
-    if (!formData.deliveryDate.trim()) {
-      newErrors.deliveryDate = 'Delivery date is required';
-    }
+    const dateErr = validateRequired(formData.deliveryDate, 'Delivery date');
+    if (dateErr) newErrors.deliveryDate = dateErr;
 
-    if (!formData.deliveryAddress.trim()) {
-      newErrors.deliveryAddress = 'Delivery address is required';
-    }
+    const addrErr = validateRequired(formData.deliveryAddress, 'Delivery address');
+    if (addrErr) newErrors.deliveryAddress = addrErr;
 
     setErrors(newErrors);
     return Object.keys(newErrors).length === 0;
@@ -154,6 +149,7 @@ ${formData.message || 'None'}
   if (!isOpen) return null;
 
   return (
+    <Portal>
     <div ref={focusTrapRef} className="fixed inset-0 z-50 flex items-center justify-center p-4">
       {/* Backdrop */}
       <div
@@ -205,6 +201,7 @@ ${formData.message || 'None'}
             </div>
           ) : (
             <form onSubmit={handleSubmit} className="p-6 space-y-6">
+              <fieldset disabled={status === 'loading'} className="space-y-6">
               {/* Order Summary */}
               <div className="bg-linen-50 rounded-xl p-4">
                 <h3 className="font-medium text-charcoal-800 mb-3">Order Summary</h3>
@@ -397,10 +394,12 @@ ${formData.message || 'None'}
                   No payment required now. We'll confirm your order and arrange payment.
                 </p>
               </div>
+              </fieldset>
             </form>
           )}
         </div>
       </div>
     </div>
+    </Portal>
   );
 }

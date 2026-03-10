@@ -6,7 +6,7 @@ import { useLocation } from 'react-router-dom';
  * Uses CSS transitions (no extra dependencies).
  */
 export function PageTransition({ children }) {
-  const location = useLocation();
+  useLocation(); // triggers re-render on route change
   const [displayChildren, setDisplayChildren] = useState(children);
   const [transitionStage, setTransitionStage] = useState('enter');
 

@@ -1,7 +1,9 @@
-import { useState, useEffect, useCallback } from 'react';
+import { useState, useEffect, useCallback, useRef } from 'react';
 import { Button } from '../common/Button';
 import { ROUTES } from '../../utils/constants';
 import { useAnimation } from '../../hooks/useAnimation';
+
+const SLIDESHOW_INTERVAL = 7000;
 
 const heroImages = [
   {
@@ -37,9 +39,18 @@ export function FloralHero() {
   }, []);
 
   useEffect(() => {
-    const interval = setInterval(nextSlide, 7000);
+    const interval = setInterval(nextSlide, SLIDESHOW_INTERVAL);
     return () => clearInterval(interval);
   }, [nextSlide]);
+
+  // Preload the next slide image
+  const preloadRef = useRef(null);
+  useEffect(() => {
+    const nextIndex = (currentSlide + 1) % heroImages.length;
+    const img = new Image();
+    img.src = heroImages[nextIndex].src;
+    preloadRef.current = img;
+  }, [currentSlide]);
 
   const goToSlide = (index) => {
     setCurrentSlide(index);

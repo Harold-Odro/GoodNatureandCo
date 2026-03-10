@@ -18,7 +18,7 @@ function ContactHero() {
           className="w-full h-full object-cover"
         />
         <div className="absolute inset-0 bg-charcoal-900/40" />
-        <div className="absolute inset-0 bg-gradient-to-t from-charcoal-900/60 via-transparent to-charcoal-900/20" />
+        <div className="absolute inset-0 bg-linear-to-t from-charcoal-900/60 via-transparent to-charcoal-900/20" />
       </div>
 
       <div className="container-custom text-center relative z-10">
@@ -89,6 +89,16 @@ function FAQ() {
   );
 }
 
+const contactSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'BreadcrumbList',
+  itemListElement: [
+    { '@type': 'ListItem', position: 1, name: 'Home', item: 'https://goodnature.com/' },
+    { '@type': 'ListItem', position: 2, name: 'Floral Artistry', item: 'https://goodnature.com/floral-artistry' },
+    { '@type': 'ListItem', position: 3, name: 'Contact', item: 'https://goodnature.com/floral-artistry/contact' }
+  ]
+};
+
 export default function Contact() {
   const [infoRef, , infoClass] = useAnimation('fade-right', 0.1);
   const [formRef, , formClass] = useAnimation('fade-left', 0.1, 'delay-2');
@@ -99,6 +109,7 @@ export default function Contact() {
         title="Contact | Good Nature Floral Artistry"
         description="Get in touch with Good Nature Floral Artistry for wedding flowers, event arrangements, and more. Serving Reston, Virginia."
         canonical="/floral-artistry/contact"
+        schema={contactSchema}
       />
 
       <ContactHero />

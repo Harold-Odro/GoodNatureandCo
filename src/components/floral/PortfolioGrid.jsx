@@ -1,5 +1,6 @@
 import { useState, useEffect } from 'react';
 import { PortfolioItem } from './PortfolioItem';
+import { Button } from '../common/Button';
 import { useAnimation } from '../../hooks/useAnimation';
 
 const ITEMS_PER_PAGE = 6;
@@ -48,15 +49,12 @@ export function PortfolioGrid({ items, onItemClick, onItemRequest }) {
 
       {hasMore && (
         <div ref={buttonRef} className={`text-center mt-10 ${buttonClass}`}>
-          <button
-            onClick={handleLoadMore}
-            className="inline-flex items-center px-8 py-3 bg-transparent border-2 border-sage-400 text-sage-600 hover:bg-sage-50 font-medium rounded-xl transition-all duration-300 btn-hover-lift"
-          >
+          <Button onClick={handleLoadMore} variant="outline" size="md">
             Load More
             <span className="ml-2 text-sm text-charcoal-500">
               ({items.length - visibleCount} remaining)
             </span>
-          </button>
+          </Button>
         </div>
       )}
 
