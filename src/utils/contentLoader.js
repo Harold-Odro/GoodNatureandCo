@@ -10,6 +10,7 @@
  * Environment variable: VITE_CMS_API_URL (optional)
  */
 
+import { useState, useEffect } from 'react';
 import { portfolioItems as localPortfolio } from '../data/portfolio';
 import { products as localProducts } from '../data/products';
 import { services as localServices } from '../data/services';
@@ -79,10 +80,10 @@ export async function getPortfolioByCategory(category) {
  */
 export function createContentHook(fetcher) {
   return function useContent(...args) {
-    const { useState, useEffect } = require('react');
     const [data, setData] = useState(null);
     const [loading, setLoading] = useState(true);
     const [error, setError] = useState(null);
+    const argsKey = JSON.stringify(args);
 
     useEffect(() => {
       let cancelled = false;
@@ -103,7 +104,8 @@ export function createContentHook(fetcher) {
         });
 
       return () => { cancelled = true; };
-    }, [JSON.stringify(args)]);
+      // eslint-disable-next-line react-hooks/exhaustive-deps
+    }, [argsKey]);
 
     return { data, loading, error };
   };

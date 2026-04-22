@@ -7,9 +7,9 @@ export function GatewayHero() {
   const [taglineRef, , taglineClass] = useAnimation('fade-up', 0.1, 'delay-3');
 
   return (
-    <section className="relative min-h-[100svh] flex items-center justify-center overflow-hidden">
+    <section className="relative min-h-svh flex items-center justify-center overflow-hidden">
       {/* Background - Soft earthy gradient */}
-      <div className="absolute inset-0 bg-gradient-to-br from-linen-200 via-ivory-100 to-linen-300" />
+      <div className="absolute inset-0 bg-linear-to-br from-linen-200 via-ivory-100 to-linen-300" />
 
       {/* Decorative botanical border frame */}
       <div className="absolute inset-4 sm:inset-8 md:inset-12 border border-linen-400/50 rounded-sm pointer-events-none" />

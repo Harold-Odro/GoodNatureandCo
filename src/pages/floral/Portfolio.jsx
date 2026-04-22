@@ -2,7 +2,6 @@ import { useState, useEffect } from 'react';
 import { useSearchParams } from 'react-router-dom';
 import { FloralLayout } from '../../layouts/FloralLayout';
 import { SEO } from '../../components/common/SEO';
-import { SectionHeading } from '../../components/common/SectionHeading';
 import { Button } from '../../components/common/Button';
 import { PortfolioFilter } from '../../components/floral/PortfolioFilter';
 import { PortfolioGrid } from '../../components/floral/PortfolioGrid';
@@ -53,10 +52,10 @@ function CTASection() {
     <section className="py-16 md:py-24 bg-linen-200">
       <div className="container-custom text-center">
         <h2 ref={titleRef} className={`text-3xl md:text-4xl font-display text-charcoal-800 mb-4 ${titleClass}`}>
-          Let's Create Something Beautiful
+          Let&apos;s Create Something Beautiful
         </h2>
         <p ref={descRef} className={`text-lg text-charcoal-700 mb-8 max-w-2xl mx-auto ${descClass}`}>
-          Ready to bring your floral vision to life? We'd love to hear from you.
+          Ready to bring your floral vision to life? We&apos;d love to hear from you.
         </p>
         <div ref={buttonRef} className={buttonClass}>
           <Button href={ROUTES.floralContact} variant="primary" size="lg">

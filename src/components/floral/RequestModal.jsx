@@ -7,7 +7,7 @@ import { validateEmail, validateRequired } from '../../utils/validators';
 
 export function RequestModal({ item, onClose }) {
   const focusTrapRef = useFocusTrap(true);
-  const { sendEmail, status, error, reset, retry, canRetry } = useEmailJS();
+  const { sendEmail, status, error, retry, canRetry } = useEmailJS();
   const [formData, setFormData] = useState({
     name: '',
     email: '',
@@ -154,7 +154,7 @@ export function RequestModal({ item, onClose }) {
               Request This Arrangement
             </h2>
             <p className="text-charcoal-600 mb-6">
-              Tell us about your event and we'll create something beautiful for you.
+              Tell us about your event and we&apos;ll create something beautiful for you.
             </p>
 
             <form onSubmit={handleSubmit} className="space-y-4">
@@ -236,7 +236,7 @@ export function RequestModal({ item, onClose }) {
                   rows="4"
                   value={formData.message}
                   onChange={handleChange}
-                  placeholder="Describe your event, color preferences, any specific flowers you'd like..."
+                  placeholder="Describe your event, color preferences, any specific flowers you&apos;d like..."
                   className={`w-full px-4 py-2.5 rounded-lg border-2 transition-colors focus:outline-none focus:ring-2 focus:ring-sage-500 resize-none ${
                     errors.message ? 'border-terracotta-500' : 'border-sage-200 focus:border-sage-400'
                   }`}
@@ -248,7 +248,7 @@ export function RequestModal({ item, onClose }) {
               {status === 'success' && (
                 <div className="p-4 bg-sage-100 border-2 border-sage-300 rounded-lg">
                   <p className="text-sage-800 font-medium text-sm">
-                    Thank you! We've received your request and will be in touch soon.
+                    Thank you! We&apos;ve received your request and will be in touch soon.
                   </p>
                 </div>
               )}

@@ -1,7 +1,7 @@
 import { FloralLayout } from '../../layouts/FloralLayout';
 import { SEO } from '../../components/common/SEO';
 import { Button } from '../../components/common/Button';
-import { ROUTES, FLORAL_INFO, CONTACT_INFO, SITE_INFO } from '../../utils/constants';
+import { ROUTES } from '../../utils/constants';
 import { useAnimation, useStaggerAnimation } from '../../hooks/useAnimation';
 
 function AboutHero() {
@@ -16,7 +16,7 @@ function AboutHero() {
           alt="Beautiful flowers background"
           className="w-full h-full object-cover"
         />
-        <div className="absolute inset-0 bg-gradient-to-b from-charcoal-900/50 via-charcoal-900/40 to-charcoal-900/60"></div>
+        <div className="absolute inset-0 bg-linear-to-b from-charcoal-900/50 via-charcoal-900/40 to-charcoal-900/60"></div>
       </div>
 
       {/* Decorative Elements */}
@@ -64,7 +64,7 @@ function StorySection() {
             <div className="space-y-4 text-charcoal-700 leading-relaxed">
               <p>
                 Good Nature Floral Artistry turns the beauty of nature into intentional floral
-                moments — soft, romantic designs that feel thoughtful, expressive, and alive.
+                moments &mdash; soft, romantic designs that feel thoughtful, expressive, and alive.
               </p>
               <p>
                 Our style is elegant and natural, inspired by gardens, sunlight, and the way
@@ -73,7 +73,7 @@ function StorySection() {
               </p>
               <p>
                 Every bouquet is made to mean something — to shift the mood of a space,
-                celebrate a moment, or remind someone they're deeply cared for.
+                celebrate a moment, or remind someone they&apos;re deeply cared for.
               </p>
             </div>
           </div>
@@ -96,8 +96,8 @@ function WhatWeCreateSection() {
           </h2>
           <p className="text-lg md:text-xl text-charcoal-700 leading-relaxed mb-8">
             We create bespoke bouquets, statement arrangements, and floral styling for intimate
-            celebrations, meaningful gifts, and everyday joy — because flowers aren't just décor,
-            they're emotion in bloom.
+            celebrations, meaningful gifts, and everyday joy — because flowers aren&apos;t just décor,
+            they&apos;re emotion in bloom.
           </p>
           <div className="flex flex-wrap justify-center gap-4 text-sage-700 font-medium">
             <span className="px-6 py-2 bg-ivory-50 rounded-full shadow-sm">Bespoke Bouquets</span>
@@ -256,8 +256,8 @@ function TestimonialSection() {
           </svg>
 
           <blockquote className="text-2xl md:text-3xl font-display text-charcoal-800 leading-relaxed mb-8">
-            "Working with Good Nature was an absolute dream. They understood exactly what we wanted
-            for our wedding and exceeded every expectation. The flowers were breathtaking."
+            &ldquo;Working with Good Nature was an absolute dream. They understood exactly what we wanted
+            for our wedding and exceeded every expectation. The flowers were breathtaking.&rdquo;
           </blockquote>
 
           <div>
@@ -283,7 +283,7 @@ function CTASection() {
           Ready to Create Something Beautiful?
         </h2>
         <p className="text-lg text-ivory-200 mb-8 max-w-2xl mx-auto">
-          Let's bring your floral vision to life — whether it's an intimate celebration, a meaningful gift, or everyday joy.
+          Let&apos;s bring your floral vision to life — whether it&apos;s an intimate celebration, a meaningful gift, or everyday joy.
         </p>
         <div className="flex flex-col sm:flex-row gap-4 justify-center">
           <Button href={ROUTES.floralContact} variant="secondary" size="lg">

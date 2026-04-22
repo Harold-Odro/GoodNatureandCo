@@ -1,5 +1,5 @@
 import { useState, useEffect } from 'react';
-import { useCart } from '../../context/CartContext';
+import { useCart } from '../../hooks/useCart';
 import { useEmailJS } from '../../hooks/useEmailJS';
 import { Button } from './Button';
 import { Portal } from './Portal';
@@ -166,7 +166,7 @@ ${formData.message || 'None'}
               Complete Your Order
             </h2>
             <p className="text-sm text-charcoal-600 mt-1">
-              We'll contact you to confirm and arrange payment
+              We&apos;ll contact you to confirm and arrange payment
             </p>
           </div>
           <button
@@ -193,7 +193,7 @@ ${formData.message || 'None'}
                 Order Request Received!
               </h3>
               <p className="text-charcoal-600 mb-6 max-w-md mx-auto">
-                Thank you for your order! We'll review your request and contact you within 24 hours to confirm details and arrange payment.
+                Thank you for your order! We&apos;ll review your request and contact you within 24 hours to confirm details and arrange payment.
               </p>
               <Button onClick={handleSuccessClose} variant="primary" size="lg">
                 Continue Shopping
@@ -391,7 +391,7 @@ ${formData.message || 'None'}
                   {status === 'loading' ? 'Submitting...' : 'Submit Order Request'}
                 </Button>
                 <p className="text-xs text-center text-charcoal-500 mt-3">
-                  No payment required now. We'll confirm your order and arrange payment.
+                  No payment required now. We&apos;ll confirm your order and arrange payment.
                 </p>
               </div>
               </fieldset>

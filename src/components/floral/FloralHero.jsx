@@ -91,7 +91,7 @@ export function FloralHero() {
       {/* Content */}
       <div className="relative z-10 text-center px-4 max-w-4xl mx-auto">
         <h1 ref={titleRef} className={`text-4xl md:text-5xl lg:text-6xl font-display text-ivory-50 mb-6 leading-tight ${titleClass}`}>
-          Blooms for Life's Meaningful Moments
+          Blooms for Life&apos;s Meaningful Moments
         </h1>
         <p ref={subtitleRef} className={`text-lg md:text-xl text-ivory-200 mb-8 max-w-2xl mx-auto leading-relaxed ${subtitleClass}`}>
           Thoughtfully crafted floral artistry for your most cherished occasions

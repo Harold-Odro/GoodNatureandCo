@@ -1,5 +1,5 @@
 import { useState, useMemo } from 'react';
-import { useCart } from '../../context/CartContext';
+import { useCart } from '../../hooks/useCart';
 import { Button } from '../common/Button';
 import { useAnimation } from '../../hooks/useAnimation';
 
@@ -61,11 +61,6 @@ export function CustomProductCard({ product, delay = '' }) {
       setTimeout(() => setShowSuccess(false), 2000);
     }, 300);
   };
-
-  // Get color palette customization for swatches
-  const colorCustomization = product.customizations.find(
-    (c) => c.id === 'color-palette'
-  );
 
   return (
     <div

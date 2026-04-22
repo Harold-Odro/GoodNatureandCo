@@ -23,10 +23,10 @@ function ContactHero() {
 
       <div className="container-custom text-center relative z-10">
         <h1 ref={titleRef} className={`text-4xl md:text-5xl lg:text-6xl font-display text-ivory-50 mb-4 drop-shadow-lg ${titleClass}`}>
-          Let's Connect
+          Let&apos;s Connect
         </h1>
         <p ref={subtitleRef} className={`text-lg md:text-xl text-ivory-100 max-w-2xl mx-auto drop-shadow-md ${subtitleClass}`}>
-          We'd love to hear about your floral vision
+          We&apos;d love to hear about your floral vision
         </p>
       </div>
     </section>

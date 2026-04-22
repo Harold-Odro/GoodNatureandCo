@@ -4,9 +4,6 @@ import { HelmetProvider } from 'react-helmet-async'
 import { CartProvider } from '../context/CartContext'
 import { ThemeProvider } from '../context/ThemeContext'
 
-/**
- * Custom render function that wraps components with all required providers
- */
 function customRender(ui, { route = '/', ...options } = {}) {
   function AllProviders({ children }) {
     return (
@@ -25,9 +22,6 @@ function customRender(ui, { route = '/', ...options } = {}) {
   return render(ui, { wrapper: AllProviders, ...options })
 }
 
-/**
- * Render with BrowserRouter for tests that need actual URL manipulation
- */
 function renderWithBrowserRouter(ui, options = {}) {
   function Providers({ children }) {
     return (
@@ -46,8 +40,6 @@ function renderWithBrowserRouter(ui, options = {}) {
   return render(ui, { wrapper: Providers, ...options })
 }
 
-// Re-export everything from testing library
+// eslint-disable-next-line react-refresh/only-export-components
 export * from '@testing-library/react'
-
-// Override the render method
 export { customRender as render, renderWithBrowserRouter }

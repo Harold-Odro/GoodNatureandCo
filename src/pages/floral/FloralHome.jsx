@@ -4,7 +4,6 @@ import { FloralHero } from '../../components/floral/FloralHero';
 import { ServicesPreview } from '../../components/floral/ServicesPreview';
 import { FeaturedWork } from '../../components/floral/FeaturedWork';
 import { SEO } from '../../components/common/SEO';
-import { SectionHeading } from '../../components/common/SectionHeading';
 import { Button } from '../../components/common/Button';
 import { ROUTES, FLORAL_INFO } from '../../utils/constants';
 import { useScrollReveal } from '../../hooks/useScrollReveal';
@@ -23,11 +22,11 @@ function IntroductionSection() {
             <div className="space-y-4 text-charcoal-700 leading-relaxed">
               <p>
                 At Good Nature Floral Artistry, we believe flowers tell stories. Each arrangement
-                is thoughtfully designed to capture the essence of your moment — whether it's a
+                is thoughtfully designed to capture the essence of your moment — whether it&apos;s a
                 joyful celebration or a simple gesture of love.
               </p>
               <p>
-                Based in Reston, Virginia, we bring an artisan's touch to every bloom.
+                Based in Reston, Virginia, we bring an artisan&apos;s touch to every bloom.
               </p>
             </div>
           </div>
@@ -55,10 +54,10 @@ function CTASection() {
     <section className="py-16 md:py-24 bg-linen-200">
       <div ref={ref} className={`container-custom text-center reveal ${isVisible ? 'visible' : ''}`}>
         <h2 className="text-3xl md:text-4xl font-display text-charcoal-800 mb-4">
-          Let's Create Something Beautiful
+          Let&apos;s Create Something Beautiful
         </h2>
         <p className="text-lg text-charcoal-700 mb-8 max-w-2xl mx-auto">
-          Ready to bring your floral vision to life? We'd love to hear from you.
+          Ready to bring your floral vision to life? We&apos;d love to hear from you.
         </p>
         <Button href={ROUTES.floralContact} variant="primary" size="lg">
           Get in Touch

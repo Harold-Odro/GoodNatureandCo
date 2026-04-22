@@ -1,5 +1,5 @@
 import { useEffect, useState } from 'react';
-import { useCart } from '../../context/CartContext';
+import { useCart } from '../../hooks/useCart';
 import { Button } from './Button';
 import { OrderRequestModal } from './OrderRequestModal';
 import { Portal } from './Portal';

@@ -3,7 +3,7 @@ import { Button } from '../common/Button';
 import { useEmailJS } from '../../hooks/useEmailJS';
 
 export function NotifyForm() {
-  const { sendEmail, status, error, reset } = useEmailJS();
+  const { sendEmail, status, reset } = useEmailJS();
   const [email, setEmail] = useState('');
   const [emailError, setEmailError] = useState('');
 
@@ -75,7 +75,7 @@ export function NotifyForm() {
         {status === 'success' && (
           <div className="p-4 bg-sage-100 border-2 border-sage-300 rounded-xl">
             <p className="text-sage-800 font-medium text-center">
-              You're on the list! We'll let you know when we launch.
+              You&apos;re on the list! We&apos;ll let you know when we launch.
             </p>
           </div>
         )}

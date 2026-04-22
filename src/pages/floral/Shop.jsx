@@ -87,7 +87,7 @@ function EventsSection() {
             Events & Experiences
           </h2>
           <p ref={subtitleRef} className={`text-lg text-charcoal-600 max-w-2xl mx-auto ${subtitleClass}`}>
-            Custom floral design for life's most meaningful moments
+            Custom floral design for life&apos;s most meaningful moments
           </p>
         </div>
 

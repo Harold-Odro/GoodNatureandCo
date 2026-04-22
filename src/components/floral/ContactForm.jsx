@@ -4,7 +4,7 @@ import { useEmailJS } from '../../hooks/useEmailJS';
 import { validateEmail, validateRequired } from '../../utils/validators';
 
 export function ContactForm() {
-  const { sendEmail, status, error, reset, retry, canRetry } = useEmailJS();
+  const { sendEmail, status, error, retry, canRetry } = useEmailJS();
   const [formData, setFormData] = useState({
     name: '',
     email: '',
@@ -187,7 +187,7 @@ export function ContactForm() {
       {/* Status Messages */}
       {status === 'success' && (
         <div className="p-4 bg-sage-100 border-2 border-sage-300 rounded-xl">
-          <p className="text-sage-800 font-medium">Thank you! We'll be in touch soon.</p>
+          <p className="text-sage-800 font-medium">Thank you! We&apos;ll be in touch soon.</p>
         </div>
       )}
 

@@ -1,6 +1,6 @@
 /**
  * Web Vitals monitoring
- * Reports Core Web Vitals metrics (LCP, FID, CLS, FCP, TTFB)
+ * Reports Core Web Vitals metrics (LCP, INP, CLS, FCP, TTFB)
  *
  * Metrics are sent to Google Analytics if configured,
  * otherwise logged to console in development.
@@ -30,9 +30,9 @@ function sendToAnalytics(metric) {
 }
 
 export function reportWebVitals() {
-  import('web-vitals').then(({ onCLS, onFID, onFCP, onLCP, onTTFB }) => {
+  import('web-vitals').then(({ onCLS, onINP, onFCP, onLCP, onTTFB }) => {
     onCLS(sendToAnalytics);
-    onFID(sendToAnalytics);
+    onINP(sendToAnalytics);
     onFCP(sendToAnalytics);
     onLCP(sendToAnalytics);
     onTTFB(sendToAnalytics);

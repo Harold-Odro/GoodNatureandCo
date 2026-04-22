@@ -1,11 +1,11 @@
 import { useState } from 'react';
-import { useCart } from '../../context/CartContext';
+import { useCart } from '../../hooks/useCart';
 import { Button } from '../common/Button';
 import { useAnimation } from '../../hooks/useAnimation';
 
 export function ProductCard({ product, delay = '' }) {
   const [ref, , className] = useAnimation('fade-up', 0.1, delay);
-  const { addToCart, openCart } = useCart();
+  const { addToCart } = useCart();
 
   const [selectedSize, setSelectedSize] = useState(product.sizes[0]);
   const [selectedOption, setSelectedOption] = useState(product.options[0]);
