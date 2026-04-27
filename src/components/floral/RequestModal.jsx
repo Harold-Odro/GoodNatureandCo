@@ -69,7 +69,7 @@ export function RequestModal({ item, onClose }) {
     }
 
     const success = await sendEmail(
-      import.meta.env.VITE_EMAILJS_CONTACT_TEMPLATE_ID,
+      import.meta.env.VITE_EMAILJS_PORTFOLIO_TEMPLATE_ID,
       {
         from_name: formData.name,
         from_email: formData.email,
